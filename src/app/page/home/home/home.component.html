@@ -8,7 +8,30 @@
         <span>Gestor de tareas</span>
     </div>
     <div class="user-content">
-        Andres Felipe Bedoya
+        {{userName}}
     </div>
-    
+</div>
+
+
+<div class="container">
+    <div class="add-task-section">
+        <app-add-task *ngIf="showAddTaskSection"
+            (backAction)="backAddTaskAction($event)"></app-add-task>
+    </div>
+
+    <div class="content">
+        <div class="list-section card" *ngIf="showListSection">
+            <app-task-list  
+                (addAction)="addTaskAction($event)"
+                (selectWorkTask)="showData($event)">
+            </app-task-list>
+        </div>
+        <div class="data-section card" *ngIf="showDataSection">
+            <app-task-data *ngIf="!!workTaskData" 
+                [data]="workTaskData"
+                (backAction)="backDataAction($event)"
+                >
+            </app-task-data>
+        </div>
+    </div>
 </div>

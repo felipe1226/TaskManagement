@@ -1,36 +1,76 @@
-
 .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: rgb(0, 0, 117);
+  font-weight: 600;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+.title-content{
+  display: flex;
+  align-items: center;
+}
+
+.user-content {
+  margin: 0 16px;
+}
+
+.container {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+ 
+.add-task-section {
+  width: 100%;
+}
+
+.list-section {
+  width: 100%;
+  padding: 20px;
+}
+.data-section {
+  width: 100%;
+  padding: 20px;
+}
+
+@media (min-width: 480px) {
+  .toolbar{
+    flex-wrap: wrap;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .content {
     display: flex;
-    align-items: center;
-    background-color: white;
-    color: rgb(0, 0, 117);
-    font-weight: 600;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
   }
 
-  .toolbar img {
-    margin: 0 16px;
+  .list-section {
+    width: 30%;
+    padding: 20px;
   }
 
-  .title-content{
-    display: flex;
-    align-items: center;
+  .data-section {
+    width: 70%;
+    padding: 20px;
   }
-
-  .user-content {
-    margin: 0 16px;
-  }
-
-  @media screen and (max-width: 425px) {
-    .toolbar{
-        flex-wrap: wrap;
-    }
-  }
-
-  
+}

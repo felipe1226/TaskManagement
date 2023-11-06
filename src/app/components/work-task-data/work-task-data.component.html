@@ -1,0 +1,6 @@
+<p>{{data.categoryName}}</p>
+        <p>{{data.description}}</p>
+        <p>{{data.statusName}}</p>
+        <div class="circle-icon"></div>
+        <p>{{data.deadLine | date: 'fullDate'}}</p>
+        <button (click)="completeTask(data.id)" [disabled]="data.canComplete" class="btn btn-success"><i class="fa fa-flag"></i> Completar tarea</button>

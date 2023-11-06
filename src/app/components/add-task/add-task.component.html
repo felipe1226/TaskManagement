@@ -1,0 +1,77 @@
+<div class="add-task">
+    <form [formGroup]="form">
+        <div class="header-container" >
+            <div class="back-button-container">
+                <button (click)="back()" class="btn btn-info round"><i class="fa fa-angle-left"></i></button>
+            </div>
+            <div class="title-content">
+                <h2>Nueva Tarea</h2>
+                <button (click)="save($event)">Crear</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="form-group">
+                    <label for="categorias">Categorías:</label>
+                    <ng-select formControlName="category" [(ngModel)]="selectedCategory" bindLabel="name" bindValue="id" name="categories"
+                                    [items]="categories" 
+                                    [placeholder]="'Seleccione una categoria'">
+                                </ng-select>
+                                
+                </div>
+                
+                <label for="fecha">Fecha limite para completar:</label>
+                <input type="date" formControlName="deadline">
+                <!-- <input formControlName="deadline" class="form-control" placeholder="yyyy-mm-dd" name="dp" autocomplete="off"
+                    ngbDatepicker #d2="ngbDatepicker" [minDate]="minDate">
+                <div class="input-group-append">
+                  <div class="input-group-text" (click)="d2.toggle()">
+                    <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                  </div>
+                </div> -->
+            </div>
+            <div class="col-md-8 col-xs-12">
+                <label for="descripcion">Descripción:</label>
+                <textarea formControlName="description" id="descripcion" name="descripcion" rows="4"></textarea>
+        
+                <label for="observacion">Observación:</label>
+                <textarea formControlName="observation" id="observacion" name="observacion" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="waypoint-container">
+            <div class="title mr-1">
+                <h2>Puntos de destino</h2>
+            </div>
+            <button (click)="addWaypoint()" class="btn btn-primary">+</button>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="form-group">
+                    <label for="locations">Localidad:</label>
+                    <ng-select formControlName="location" [(ngModel)]="selectedLocation" bindLabel="name" bindValue="id" name="locations"
+                        [items]="locations" 
+                        [placeholder]="'Seleccione la localidad'">
+                    </ng-select>    
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección:</label>
+                    <input formControlName="address" id="address" name="address"/>
+                </div>
+            </div>
+            <div class="col-md-12 col-xs-12">
+                <ng-container *ngFor="let waypoint of waypoints">
+                    <div class=" waypoint-content card">
+                        <div class="order-container">
+                            <label>{{waypoint.order}}</label>
+                        </div>
+                        <div class="location-container">
+                            <p>{{waypoint.locationName}}</p>
+                            <p>{{waypoint.address}}</p>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </form>
+</div>

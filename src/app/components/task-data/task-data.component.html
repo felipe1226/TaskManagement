@@ -1,0 +1,52 @@
+<div class="title-container">
+    <div class="back-button-container">
+        <button (click)="back()" class="btn btn-primary"><i class="fa fa-angle-left"></i></button>
+    </div>
+    <h2>Datos de tarea</h2>
+</div>
+
+      <nav ngbNav #nav="ngbNav" class="nav-tabs justify-content-center">
+        <ng-container ngbNavItem>
+            <a ngbNavLink>Datos</a>
+            <ng-template ngbNavContent>
+                <app-work-task-data [data]="data"></app-work-task-data>
+            </ng-template>
+          </ng-container>
+
+          <ng-container ngbNavItem>
+              <a ngbNavLink>Rutas</a>
+              <ng-template ngbNavContent>
+                <ng-container *ngFor="let waypoint of data.waypoints">
+                    <div class=" waypoint-container card">
+                        <div class="order-container">
+                            <label>{{waypoint.order}}</label>
+                        </div>
+                        <div class="location-container">
+                            <p>{{waypoint.location}}</p>
+                            <p>{{waypoint.address}}</p>
+                        </div>
+                        <div class="buttons-container">
+                            <button (click)="changeStatus('IN_POINT', waypoint.id)" class="btn btn-primary">En destino</button>
+                            <button (click)="changeStatus('CHECK', waypoint.id)" matTooltip="Ruta cumplida" class="btn btn-success mt-1"><i class="fa fa-check"></i></button>
+                        </div>
+                    </div>
+                </ng-container>
+              </ng-template>
+            </ng-container>
+
+            <ng-container ngbNavItem>
+                <a ngbNavLink>Histórico de estados</a>
+                <ng-template ngbNavContent>
+                  <ng-container *ngFor="let status of data.statuses">
+                        <div class="card">
+                            <p>{{status.createdAt | date:'medium'}}</p>
+                            <p>{{status.name}}</p>
+                            <p>{{status.observation??"Sin observaciones"}}</p>
+                        </div>
+
+                  </ng-container>
+                </ng-template>
+              </ng-container>
+      </nav>
+
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>

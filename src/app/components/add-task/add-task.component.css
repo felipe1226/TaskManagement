@@ -1,0 +1,65 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.add-task {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.add-task label {
+    display: block;
+    margin-top: 10px;
+}
+
+.add-task textarea,
+.add-task input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.add-task button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-task button:hover {
+    background-color: #0056b3;
+}
+
+.header-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.back-button-container{
+    display: inherit;
+    margin: 0.5rem;
+}
+
+.title-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.waypoint-list{
+    width: 100%;
+    display: flex;
+}
+
+.waypoint-container{
+    width: 100%;
+    display: flex;
+}
+
+.waypoint-content{
+    width: 200px;
+    display: flex;
+}
+
