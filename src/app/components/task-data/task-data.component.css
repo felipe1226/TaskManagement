@@ -31,7 +31,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .location-container{
@@ -46,10 +46,15 @@
 
 .status-container{
     padding: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .status-info{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.task-data-content{
+    padding: 1rem;
 }

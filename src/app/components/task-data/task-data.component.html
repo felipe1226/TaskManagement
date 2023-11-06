@@ -2,10 +2,12 @@
     <ng-container ngbNavItem>
         <a ngbNavLink>Datos</a>
         <ng-template ngbNavContent>
-            <app-work-task-data 
-                [data]="data"
-                [showFullData]="true">
-            </app-work-task-data>
+            <div class="task-data-content">
+                <app-work-task-data 
+                    [data]="data"
+                    [showFullData]="true">
+                </app-work-task-data>
+            </div>
         </ng-template>
     </ng-container>
 
@@ -22,8 +24,8 @@
                     <p>{{waypoint.address}}</p>
                 </div>
                 <div class="buttons-container">
-                    <button [disabled]="data.canComplete || data.statusName == 'Completado'" (click)="changeStatus('IN_POINT', waypoint.id)" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i>En punto destino</button>
-                    <button [disabled]="data.canComplete || data.statusName == 'Completado'" (click)="changeStatus('CHECK', waypoint.id)" class="btn btn-success mt-1"><i class="fa fa-check"></i> Ruta Cumplida</button>
+                    <button [disabled]="data.statusName == 'Completado'" (click)="changeStatus('IN_POINT', waypoint.id)" class="btn btn-primary"><i class="fa fa-map-marker"></i> En punto destino</button>
+                    <button [disabled]="data.statusName == 'Completado'" (click)="changeStatus('CHECK', waypoint.id)" class="btn btn-success mt-1"><i class="fa fa-check"></i> Ruta Cumplida</button>
                 </div>
             </div>
         </ng-container>

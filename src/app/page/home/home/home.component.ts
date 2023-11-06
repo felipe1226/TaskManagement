@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit{
   showDataSection: boolean = true;
   workTaskData: any;
   userName!: string
+  profile!: string
 
   constructor(
     private userService: UserService,
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit{
     this.userService.getUserData().subscribe(response => {
       if(response.success){
         this.userName = response.data.name
+        this.profile = response.data.profileName
         this.userService.setUserId(response.data.id)
       }
     })

@@ -29,6 +29,8 @@
 .container {
   width: 100%;
   margin-top: 60px;
+  height: 92vh;
+  overflow-y: auto;
 }
 
 .content {
@@ -44,15 +46,14 @@
 .list-section {
   width: 100%;
   padding: 20px;
+  height: 92vh;
+  overflow-y: auto;
 }
 .data-section {
   width: 100%;
   padding: 20px;
 }
 
-.main-section{
-  height: 90vh;
-}
 
 .title-container{
   display: flex;
@@ -80,12 +81,12 @@
   }
 
   .list-section {
-    width: 30%;
+    width: 40%;
     padding: 20px;
   }
 
   .data-section {
-    width: 70%;
+    width: 60%;
     padding: 20px;
   }
 
