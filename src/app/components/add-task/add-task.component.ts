@@ -18,7 +18,6 @@ export class AddTaskComponent implements OnInit {
 
   form!: FormGroup;
 
-  
   categories: Array<any> = [];
   locations: Array<any> = [];
   waypoints: Array<WaypointSaveDTO> = [];
@@ -57,7 +56,6 @@ export class AddTaskComponent implements OnInit {
     )
   }
 
-
   ngOnInit(): void {
     this._callServices();
   }
@@ -84,7 +82,6 @@ export class AddTaskComponent implements OnInit {
   }
 
   addWaypoint(){
-    debugger
     if(this.selectedLocation == undefined || this._getFormValue('address').trim() == '')
       return;
 
@@ -101,7 +98,6 @@ export class AddTaskComponent implements OnInit {
   }
 
   save(event: any){
-    debugger
     event.preventDefault();
 
     const workTaskData: WorkTaskSaveDTO = {
@@ -128,7 +124,6 @@ export class AddTaskComponent implements OnInit {
       }
     })
   }
-
 
   back(){
     this.backAction.emit({ value: true})

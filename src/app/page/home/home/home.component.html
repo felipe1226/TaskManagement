@@ -13,7 +13,7 @@
 </div>
 
 
-<div class="container">
+<div class="container main-section">
     <div class="add-task-section">
         <app-add-task *ngIf="showAddTaskSection"
             (backAction)="backAddTaskAction($event)"></app-add-task>
@@ -27,10 +27,14 @@
             </app-task-list>
         </div>
         <div class="data-section card" *ngIf="showDataSection">
+            <div class="title-container">
+                <div class="back-button-container">
+                    <button (click)="backDataAction()" class="btn btn-primary"><i class="fa fa-angle-left"></i></button>
+                </div>
+                <h2>Datos de tarea</h2>
+            </div>
             <app-task-data *ngIf="!!workTaskData" 
-                [data]="workTaskData"
-                (backAction)="backDataAction($event)"
-                >
+                [data]="workTaskData">
             </app-task-data>
         </div>
     </div>

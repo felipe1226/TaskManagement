@@ -4,6 +4,7 @@ import { WorkTaskDTO } from 'src/app/interfaces/work-task/WorkTaskDTO';
 import { WorkTaskFiltersDTO } from 'src/app/interfaces/work-task/WorkTaskFiltersDTO';
 import { WorkTaskSaveDTO } from 'src/app/interfaces/work-task/WorkTaskSaveDTO';
 import { WorkTaskService } from 'src/app/services/work-task.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-task-list',
@@ -16,16 +17,20 @@ export class TaskListComponent implements OnInit{
   @Output() selectWorkTask = new EventEmitter();
 
   workTasks: Array<WorkTaskDTO> =[]
+  subscription!: Subscription;
 
   constructor(
     private userService: UserService,
     private workTaskService: WorkTaskService
   ){}
 
+  ngOnInit(): void {
+    this._callServices();
 
-    ngOnInit(): void {
-      this._callServices();
-    }
+    this.subscription = this.workTaskService.refresh$.subscribe(() => {
+      this._getWorkTasks();
+    })
+  }
 
   private _callServices(){
     this._getWorkTasks();
@@ -35,9 +40,11 @@ export class TaskListComponent implements OnInit{
      const filters: WorkTaskFiltersDTO ={
       userId: this.userService.getUserId()
      }
+
     this.workTaskService.getWorkTasks(filters).subscribe(response => {
       if(response.success){
         this.workTasks = response.data
+        this.selectTask(this.workTasks[0].id)
       }
     });
   }

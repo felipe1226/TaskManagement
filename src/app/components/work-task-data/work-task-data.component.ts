@@ -11,13 +11,11 @@ import { WorkTaskService } from 'src/app/services/work-task.service';
 export class WorkTaskDataComponent {
 
   @Input() data!: WorkTaskDTO;
+  @Input() showFullData?: boolean;
 
   constructor(
     private workTaskService: WorkTaskService
-  ){
-
-  }
-
+  ){}
 
   completeTask(workTaskId: string){
 

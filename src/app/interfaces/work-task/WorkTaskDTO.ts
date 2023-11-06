@@ -23,4 +23,3 @@ export interface WorkTaskDTO {
     observation: any
     createdAt: string
   }
-  
