@@ -1,41 +1,44 @@
-<div class="toolbar">
-    <div class="title-content">
-        <img
-            width="40"
-            alt="Angular Logo"
-            src="../assets/img/icons/satrack-logo.png"
-        />
-        <span>Gestor de tareas</span>
-    </div>
-    <div class="user-content">
-        {{userName}}
-    </div>
-</div>
-
-
-<div class="container main-section">
-    <div class="add-task-section">
-        <app-add-task *ngIf="showAddTaskSection"
-            (backAction)="backAddTaskAction($event)"></app-add-task>
-    </div>
-
-    <div class="content">
-        <div class="list-section card" *ngIf="showListSection">
-            <app-task-list  
-                (addAction)="addTaskAction($event)"
-                (selectWorkTask)="showData($event)">
-            </app-task-list>
+<div class="container">
+    <div class="toolbar">
+        <div class="title-content">
+            <img
+                width="40"
+                alt="Angular Logo"
+                src="../assets/img/icons/satrack-logo.png"
+            />
+            <span>Gestor de tareas</span>
         </div>
-        <div class="data-section card" *ngIf="showDataSection">
-            <div class="title-container">
-                <div class="back-button-container">
-                    <button (click)="backDataAction()" class="btn btn-primary"><i class="fa fa-angle-left"></i></button>
-                </div>
-                <h2>Datos de tarea</h2>
+        <div class="user-content">
+            <label>{{userName}}</label><br>
+            <label>{{profile}}</label>
+        </div>
+    </div>
+
+
+    <div class="main-section">
+        <div class="add-task-section">
+            <app-add-task *ngIf="showAddTaskSection"
+                (backAction)="backAddTaskAction($event)"></app-add-task>
+        </div>
+
+        <div class="content">
+            <div class="list-section card" *ngIf="showListSection">
+                <app-task-list  
+                    (addAction)="addTaskAction($event)"
+                    (selectWorkTask)="showData($event)">
+                </app-task-list>
             </div>
-            <app-task-data *ngIf="!!workTaskData" 
-                [data]="workTaskData">
-            </app-task-data>
+            <div class="data-section card" *ngIf="showDataSection">
+                <div class="title-container">
+                    <div class="back-button-container">
+                        <button (click)="backDataAction()" class="btn btn-primary"><i class="fa fa-angle-left"></i></button>
+                    </div>
+                    <h2>Datos de tarea</h2>
+                </div>
+                <app-task-data *ngIf="!!workTaskData" 
+                    [data]="workTaskData">
+                </app-task-data>
+            </div>
         </div>
     </div>
 </div>
