@@ -1,9 +1,13 @@
 <div class="title-content">
     <h2>Tareas</h2>
     <div class="add-button-container">
-        <button (click)="addTaskAction()" class="btn btn-info round">+</button>
+        <button (click)="addTaskAction()" class="btn btn-info round"><i class="fa fa-plus"></i></button>
     </div>
 </div>
+<div class="empty-content" *ngIf="workTasks?.length == 0">
+    <label>No hay tareas creadas!</label>
+</div>
+
 <ng-container *ngFor="let workTask of workTasks">
     <div class="card" (click)="selectTask(workTask.id)">
         <app-work-task-data [data]="workTask"></app-work-task-data>

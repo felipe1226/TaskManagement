@@ -39,7 +39,7 @@
 
 .back-button-container{
     display: inherit;
-    margin: 0.5rem;
+    margin: 0.7rem;
 }
 
 .title-content{
@@ -61,5 +61,12 @@
 .waypoint-content{
     width: 200px;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
 }
 
+.location-container{
+    margin: 1rem 0 1rem 0;
+}

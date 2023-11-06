@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { WorkTaskFiltersDTO } from '../interfaces/work-task/WorkTaskFiltersDTO';
@@ -10,7 +10,13 @@ import { WorkTaskSaveDTO } from '../interfaces/work-task/WorkTaskSaveDTO';
 })
 export class WorkTaskService {
 
+    private _refresh$ = new Subject<void>()
+
   constructor(private http: HttpClient) { }
+
+  get refresh$(){
+    return this._refresh$;
+  }
 
   saveWorkTask(workTaskData: WorkTaskSaveDTO): Observable<any> {
     return this.http.post<any>(`${environment.api}/task/save`, workTaskData)
@@ -27,5 +33,9 @@ export class WorkTaskService {
 
   updateStatus(data: WorkTaskSaveDTO): Observable<any> {
     return this.http.post<any>(`${environment.api}/task/update-status`, data)
+    .pipe(
+        tap(() => {
+        this._refresh$.next();
+      }));
   }
 }

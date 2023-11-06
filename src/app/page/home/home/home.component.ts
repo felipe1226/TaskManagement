@@ -13,9 +13,7 @@ export class HomeComponent implements OnInit{
   showListSection: boolean = true;
   showDataSection: boolean = true;
   workTaskData: any;
-
   userName!: string
-
 
   constructor(
     private userService: UserService,
@@ -58,14 +56,13 @@ export class HomeComponent implements OnInit{
     this.showDataSection = false;
   }
 
-
   backAddTaskAction(event: any){
     this.showAddTaskSection = false;
     this.showListSection = true;
+    this.showDataSection = true;
   }
 
-  backDataAction(event: any){
+  backDataAction(){
     this.showDataSection = false;
   }
-
 }

@@ -50,7 +50,22 @@
   padding: 20px;
 }
 
-@media (min-width: 480px) {
+.main-section{
+  height: 90vh;
+}
+
+.title-container{
+  display: flex;
+  align-items: center;
+}
+
+.back-button-container{
+  display: inherit;
+  margin: 0.5rem;
+}
+
+
+@media (min-width: 840px) {
   .toolbar{
     flex-wrap: wrap;
   }
@@ -72,5 +87,9 @@
   .data-section {
     width: 70%;
     padding: 20px;
+  }
+
+  .back-button-container{
+    display: none;
   }
 }

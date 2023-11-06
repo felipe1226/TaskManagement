@@ -1,5 +1,4 @@
-import { Waypoint } from './../../interfaces/work-task/WorkTaskDTO';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WorkTaskDTO } from 'src/app/interfaces/work-task/WorkTaskDTO';
 import { WorkTaskSaveDTO } from 'src/app/interfaces/work-task/WorkTaskSaveDTO';
 import { WorkTaskService } from 'src/app/services/work-task.service';
@@ -12,7 +11,6 @@ import { WorkTaskService } from 'src/app/services/work-task.service';
 export class TaskDataComponent implements OnInit{
 
   @Input() data!: WorkTaskDTO;
-  @Output() backAction = new EventEmitter;
 
   showTaskList: boolean = true;
   
@@ -21,7 +19,6 @@ export class TaskDataComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    console.log('data', this.data)
   }
 
   changeStatus(status: string, waypointId: string){
@@ -45,10 +42,6 @@ export class TaskDataComponent implements OnInit{
         console.log(response.message)
       }
     })
-  }
-
-  back(){
-    this.backAction.emit({ value: true})
   }
 
 }

@@ -1,6 +1,14 @@
-<p>{{data.categoryName}}</p>
-        <p>{{data.description}}</p>
-        <p>{{data.statusName}}</p>
-        <div class="circle-icon"></div>
-        <p>{{data.deadLine | date: 'fullDate'}}</p>
-        <button (click)="completeTask(data.id)" [disabled]="data.canComplete" class="btn btn-success"><i class="fa fa-flag"></i> Completar tarea</button>
+<div class="content">
+    <strong>{{data.categoryName}}</strong>
+    <p>{{data.description}}</p>
+    <label><strong>Estado</strong></label>
+    <p>{{data.statusName}}</p>
+    <label><strong>Fecha limite de cumplimiento</strong></label>
+    <p>{{data.deadLine | date: 'fullDate'}}</p>
+    <ng-container *ngIf="showFullData">
+        <label><strong>Observaciones</strong></label>
+        <p>{{data.observation}}</p>
+    </ng-container>
+
+    <button (click)="completeTask(data.id)" [disabled]="data.canComplete || data.statusName == 'Completado'" class="btn btn-success"><i class="fa fa-flag"></i> Completar tarea</button>
+</div>
